@@ -4,11 +4,20 @@ import sqlite3
 import glob
 import csv
 import os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("dir", help="Directory containing places.sqlite")
+parser.add_argument("csv", help="Filename for CSV output")                                                                                                                             
+parser.parse_args()
+args = parser.parse_args()
 
 places = []
 placeshash = {}
 
-for root, dirs, files in os.walk("."):
+print("Now walking %s..." % (args.dir))
+
+for root, dirs, files in os.walk(args.dir):
     for file in files:
         if file == "places.sqlite":
             places.append(os.path.join(root, file))
@@ -22,7 +31,7 @@ for p in places:
     for r in c.fetchall():
         placeshash[r["url"]] = r["title"]
 
-with open('bookmarks.csv', 'w', newline='') as csvfile:
+with open(args.csv, 'w', newline='') as csvfile:
     spamwriter = csv.writer(csvfile, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
