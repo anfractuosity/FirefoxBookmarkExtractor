@@ -17,7 +17,7 @@ placeshash = {}
 
 print("Now walking %s..." % (args.dir))
 
-for root, dirs, files in os.walk(args.dir):
+for root, dirs, files in os.walk(args.dir,followlinks=True):
     for file in files:
         if file == "places.sqlite":
             places.append(os.path.join(root, file))
