@@ -12,3 +12,7 @@ positional arguments:
 optional arguments:
   -h, --help  show this help message and exit
 ```
+
+# ToDo
+
+Write script to then grab all websites from the bookmark list, in an efficient fashion (including page content such as images etc).
