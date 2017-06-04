@@ -32,9 +32,9 @@ for p in places:
         placeshash[r["url"]] = r["title"]
 
 with open(args.csv, 'w', newline='') as csvfile:
-    spamwriter = csv.writer(csvfile, delimiter=',',
+    csvwriter = csv.writer(csvfile, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
     for k,v in placeshash.items():
-        spamwriter.writerow([k,v])
+        csvwriter.writerow([k,v])
 
