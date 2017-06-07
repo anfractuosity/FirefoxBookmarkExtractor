@@ -44,6 +44,7 @@ with open(args.csv, 'w', newline='') as csvfile:
         h.update(k.encode("utf-8"))
         csvwriter.writerow([h.hexdigest(),k,v])
         
+"""
         urlfolder = h.hexdigest()
 
         wpage = os.path.join(args.download_dir,urlfolder)
@@ -55,3 +56,4 @@ with open(args.csv, 'w', newline='') as csvfile:
                 print("Downloading ",k)            
                 with open(os.devnull, 'w') as devnull:
                     completed = subprocess.run(['wget', '-T1','-t1','-E','-k','-H','-nd','-N','-p','-P'+wpage,k],stdout=devnull,stderr=devnull)
+"""
